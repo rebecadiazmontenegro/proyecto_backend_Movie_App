@@ -5,8 +5,16 @@ const port = 3000; //Puerto de pruebas
 //Para leer el fichero
 require("dotenv").config();
 
-// Habilitar recepción de JSON por mi backend
-app.use(express.json());//Esto es un middleware
+//******Configurar PUG como motor de vistas**********
+app.set('view engine', 'pug');
+app.set('views','./views');
+//**************************************************
+// Middlewares para parsear datos del formulario
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+//Visualizar archivos estatico de public***************
+app.use(express.static('public')); // Para servir archivos estáticos del front CSS, JS, assets
+//**********
 
 // Rutas: Habilita el fichero que hemos creado
 const movieRoutes = require("./routes/movies.route");
@@ -21,6 +29,12 @@ app.get("/", (request, response) => {
 // API: Usar las rutas definidas 
 app.use('/api/movie', movieRoutes);
 app.use('/api/user', userRoutes);
+
+
+//Rutas WEB******************************
+const moviesWebRoutes = require("./routes/moviesWeb.routes");
+app.use('/',moviesWebRoutes);
+//*******************************************
 
 //No indica en que puerto y si esta funcionado
 app.listen(port, () => {
