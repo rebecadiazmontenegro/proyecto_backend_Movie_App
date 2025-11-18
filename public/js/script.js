@@ -22,12 +22,12 @@ document.getElementById("searchButton").addEventListener("click", async (e) => {
 `;
     })
 // Usamos directamente "title"
-    document.querySelectorAll(".detalle").forEach(boton=>{
-      boton.addEventListener("click", () => {
-     //const selectedTitle = btn.dataset.title;
-      window.location.href = `/search/${encodeURIComponent(title)}`;
-    });
-  }); // <--- cierre del forEach de botones
+  //   document.querySelectorAll(".detalle").forEach(boton=>{
+  //     boton.addEventListener("click", () => {
+  //    //const selectedTitle = btn.dataset.title;
+  //     window.location.href = `/search/${encodeURIComponent(title)}`;
+  //   });
+  // }); // <--- cierre del forEach de botones
   }catch (error) {
     console.log(error);
   }
