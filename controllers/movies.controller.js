@@ -1,7 +1,8 @@
 const movieService = require("../services/movies.service");
 const allFetch = require("../utils/fetchMovie.utils");
 
-// GET http://localhost:3000/api/movie/:title
+// GET http://localhost:3000/api/movie/all/:title ACTUAL
+// GET http://localhost:3000/api/movie/:title PASADA
 
 // getAllMovies
 const getAllMovies = async (req, res) => {

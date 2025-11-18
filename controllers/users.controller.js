@@ -27,7 +27,7 @@ const getUserByEmail = async (req, res) => {
   }
 };
 
-// POST http://localhost:3000/api/authors/
+// POST http://localhost:3000/api/user/
 const createUser = async(req,res) =>{
     try {
         const {username, email, role, password } = req.body;

@@ -1,6 +1,6 @@
-const movieService = require("../services/movies.service");
+const moviesController = require("../controllers/movies.controller");
 
-const renderHome = (req, res) => {
+const renderSearch = (req, res) => {
   res.render("search");
 };
 
@@ -9,8 +9,7 @@ const renderHome = (req, res) => {
 const renderMovieDetail = async (req, res) => {
   try {
     const { title } = req.params;
-    const movie = await movieService.getMovieService(title);
-
+    const movie = await moviesController.getOneMovie(title); 
     if (!movie || movie.message) {
       return res.status(404).render("detalle", { movie: null, message: "Película no encontrada" });
     }
@@ -25,6 +24,6 @@ const renderMovieDetail = async (req, res) => {
 
 
 module.exports = {
-    renderHome,
+    renderSearch,
     renderMovieDetail
 }
