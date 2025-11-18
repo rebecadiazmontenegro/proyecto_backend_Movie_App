@@ -3,7 +3,9 @@ const router = require('express').Router();
 
 // GET http://localhost:3000/api/movie/:title
 
-router.get("/:title", movieController.getMovie);
+
+router.get("/:title", movieController.getAllMovies);
+
 
 // POST http://localhost:3000/api/movie
 
