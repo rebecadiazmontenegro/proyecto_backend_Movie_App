@@ -1,34 +1,14 @@
 const Movie = require("../models/movies.model");
-const fetchMovie = require("../utils/fetchMovie.utils");
 
 // GET buscar por título
 const getMovieService = async (title) => {
   try {
     if (!title) {
       return { message: "Por favor, introduce un título" };
-    }
-
-    const movieFromApi = await fetchMovie(title);
-
-    if (movieFromApi) {
-      //const movieApiExist = await Movie.findOne({ Title: movieFromApi.Title });
-
-      return {
-      Title: movieFromApi.Title,
-      Year: movieFromApi.Year,
-      Runtime: movieFromApi.Runtime,
-      Genre: movieFromApi.Genre,
-      Director: movieFromApi.Director,
-      Actors: movieFromApi.Actors,
-      Plot: movieFromApi.Plot,
-      Country: movieFromApi.Country,
-      Poster: movieFromApi.Poster,
-      imdbRating: movieFromApi.imdbRating,
-    };
     } else {
-    const movies = await Movie.find({ Title: title }, "-_id -__v");
-    return movies;
-  }
+      const movies = await Movie.find({ Title: title }, "-_id -__v");
+      return movies;
+    }
   } catch (error) {
     return { message: "Error al obtener las película", details: error.message };
   }
@@ -102,6 +82,8 @@ async function deleteMovieService(Title) {
     };
   }
 }
+
+
 
 module.exports = {
   getMovieService,

@@ -1,16 +1,29 @@
 const movieService = require("../services/movies.service");
+const allFetch = require("../utils/fetchMovie.utils");
 
 // GET http://localhost:3000/api/movie/:title
-const getMovie = async (req, res) => {
+
+// getAllMovies
+const getAllMovies = async (req, res) => {
   try {
     const { title } = req.params;
-    const movie = await movieService.getMovieService(title);
-    res.status(200).json(movie);
+    //const movie = await movieService.getMovieService(title);
+    let movies = await allFetch.fetchAllMovies(title);
+
+    if(movies.length===0)
+      // busca en mongo
+       movies = await movieService.getMovieService(title);
+  
+
+
+    res.status(200).json(movies);
   } catch (error) {
     console.error(error);
     res.status(400).json({ msj: error.message });
   }
 };
+
+//GET 
 
 // POST http://localhost:3000/api/movie
 
@@ -65,7 +78,7 @@ const deleteMovie = async (req, res) => {
 };
 
 module.exports = {
-  getMovie,
+  getAllMovies,
   postMovie,
   putMovie,
   deleteMovie
