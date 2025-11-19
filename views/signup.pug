@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Sign Up
+    meta(charset="utf-8")
+  body
+    h1 Registro de Usuario
+    if error
+      p #{error}
+    form(action="/signup" method="POST")
+      // Username
+      label(for="username") Nombre de usuario:
+      input(type="text" name="username" id="username" required)
+      br
+      // Email
+      label(for="email") Email:
+      input(type="email" name="email" id="email" required)
+      br
+      // Role
+      label(for="role") Rol:
+      select(name="role" id="role" required)
+        option(value="" disabled selected) Seleccionar rol
+        option(value="user") Usuario
+        option(value="admin") Administrador
+      br
+      // Password
+      label(for="password") Contraseña:
+      input(type="password" name="password" id="password" required)
+      br
+      button(type="submit") Crear cuenta

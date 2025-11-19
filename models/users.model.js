@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const queries = require("../queries/users.queries"); // Queries SQL
 const pool = require("../config/db_pgsql");
 
@@ -8,7 +9,7 @@ const getUserByEmail = async (email) => {
   try {
     client = await pool.connect(); // Espera a abrir conexion
     const data = await client.query(queries.getUserByEmail, [email]);
-    result = data.rows;
+    result = data.rows[0];
   } catch (err) {
     console.log(err);
     throw err;
@@ -22,10 +23,11 @@ const getUserByEmail = async (email) => {
 // POST http://localhost:3000/api/movies/ 
 const createUser = async (user) =>{
     const { username, email, role, password } = user;
+    const hashedPassword = await bcrypt.hash(password, 10); // <-- HASH
     let client, result;
     try{
         client = await pool.connect(); // Espera conexión con la base de datos
-        const data = await client.query(queries.createUser, [username, email, role, password]); // Lanza la query DELETE
+        const data = await client.query(queries.createUser, [username, email, role, hashedPassword]); // Lanza la query DELETE
         result = data.rowCount; // rowCount = cuántas filas fueron creadas (si es 1 ha sido exitoso)
     }catch(error){
         console.error('Error al crear el User:', error);
