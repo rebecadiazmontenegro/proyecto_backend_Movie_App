@@ -4,6 +4,7 @@ html
     title Sign Up
     meta(charset="utf-8")
   body
+    include header.pug
     h1 Hola usuario
 
     // Botón para ir al Dashboard
@@ -15,3 +16,4 @@ html
     // Botón para cerrar sesión
     form(action="/logout" method="get")
       button(type="submit") Cerrar sesión
+  include footer.pug

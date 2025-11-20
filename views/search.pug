@@ -7,13 +7,13 @@ html(lang="en")
         link(rel="stylesheet", href="/css/style.css")
         title Document
     body
+        include header.pug
         main
-            h1 Buscador
+            h1#buscador Buscador
             input#movieName(type="text")
             button#searchButton Buscar
             
 
             #result
-            
-
         script(src="/js/script.js")
+    include footer.pug
