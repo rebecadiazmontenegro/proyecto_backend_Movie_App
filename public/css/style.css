@@ -1,0 +1,182 @@
+/*RESET*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+/*********NUESTRAS CSS**********/
+/* ===== Reset y base ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  background-color: #f3f4f2;
+  color: #333;
+  padding: 20px;
+
+}
+#result{
+    background-color: aquamarine;
+}
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== Títulos ===== */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* ===== Inputs y botones ===== */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 20px;
+  border: none;
+  background-color: #0c36fb;
+  color: rgb(253, 253, 253);
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 3px 3px 10px #9e9c9c;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #536ff0;
+}
+
+/* ===== Links como botones ===== */
+a button {
+  display: inline-block;
+  margin: 5px;
+}
+
+/* ===== Cards de películas ===== */
+.movie-card {
+  background-color: white;
+  border-radius: 6px;
+  border: solid black;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  width: 300px;
+}
+
+.movie-card img {
+  max-width: 200px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.movie-card p {
+  margin-bottom: 5px;
+}
+
+/* ===== Buscador ===== */
+#movieName {
+  display: inline-block;
+  width: calc(100% - 120px);
+  margin-right: 10px;
+}
+
+#searchButton {
+  display: inline-block;
+}
+
+/* ===== Formularios ===== */
+form {
+  background-color: white;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  #movieName {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #searchButton {
+    width: 100%;
+  }
+
+  .movie-card img {
+    max-width: 100%;
+  }
+}

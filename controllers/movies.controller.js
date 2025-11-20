@@ -18,6 +18,19 @@ const getAllMovies = async (req, res) => {
   }
 };
 
+// getAllMoviesbbdd http://localhost:3000/api/all/movie/:title
+const getAllMoviesbbdd = async (req, res) => {
+  try {
+    // busca en mongo
+    const movies = await movieService.getMovieServiceBBDD();
+
+    res.status(200).json(movies);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ msj: error.message });
+  }
+};
+
 // getOneMovies http://localhost:3000/api/movie/:title
 const getOneMovie = async (req, res) => {
   try {
@@ -113,4 +126,5 @@ module.exports = {
   postMovie,
   putMovie,
   deleteMovie,
+  getAllMoviesbbdd
 };

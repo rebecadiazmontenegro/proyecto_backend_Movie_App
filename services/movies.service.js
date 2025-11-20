@@ -13,6 +13,15 @@ const getMovieService = async (title) => {
     return { message: "Error al obtener las película", details: error.message };
   }
 };
+//GET todas nuestras pelis de la bbdd
+const getMovieServiceBBDD = async () => {
+  try {
+    const movies = await Movie.find({}, "-_id -__v"); // sin _id ni __v
+    return movies; // devuelve un array con todas las películas
+  } catch (error) {
+    return { message: "Error al obtener las películas", details: error.message };
+  }
+};
 
 // GET buscar por id
 const getMovieByIdService = async (id) => {
@@ -102,6 +111,7 @@ async function deleteMovieService(Title) {
 
 module.exports = {
   getMovieService,
+  getMovieServiceBBDD,
   getMovieByIdService,
   createMovieService,
   editMovieService,

@@ -2,6 +2,9 @@ const movieController = require("../controllers/movies.controller");
 const moviesWebController = require("../controllers/moviesWeb.controller");
 const router = require("express").Router();
 
+//GET http://localhost:3000/api/movie/all
+router.get("/bbdd", movieController.getAllMoviesbbdd)
+
 // GET http://localhost:3000/api/movie/all/:title
 /**
  * @swagger

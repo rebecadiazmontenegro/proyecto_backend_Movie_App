@@ -6,9 +6,19 @@ const renderSearch = (req, res) => {
   res.render("search");
 };
 
-const renderDashboard = (req, res) => {
-  res.render("dashboard");
-}
+// const renderDashboard = (req, res) => {
+//   res.render("dashboard");
+// }
+
+const renderDashboard = async (req, res) => {
+  try {
+    const peliculas = await Movie.find({}, "-__v -_id"); // todas las películas
+    res.render("dashboard", { peliculas :[] }); // PASAMOS EL ARRAY A PUG
+  } catch (err) {
+    console.error(err);
+    res.render("dashboard", { peliculas: [] }); // array vacío si hay error
+  }
+};
 
 const renderFavoritos = (req, res) => {
   res.render("favoritos");
