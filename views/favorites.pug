@@ -2,6 +2,7 @@ doctype html
 html(lang="es")
   head
     meta(charset="UTF-8")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Favoritos
     link(rel="stylesheet", href="/css/style.css")
@@ -29,5 +30,10 @@ html(lang="es")
               p 
                 strong Duración: 
                 | #{movie.Runtime}
+                
+              button#deleteButton(data-id=(movie.imdbID || movie._id)) Eliminar favorito
       else
         p No tienes películas favoritas guardadas aún.
+
+
+      script(src="/js/script.js")

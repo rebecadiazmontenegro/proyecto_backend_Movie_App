@@ -2,6 +2,7 @@ doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet", href="/css/style.css")
     title Detalle Película
@@ -44,5 +45,8 @@ html(lang="en")
             p
               strong Puntuación: 
               | #{movie.imdbRating}
+          button#favoriteButton(data-id=(movie.imdbID || movie._id)) Añadir a favoritos
       else
         p= message
+
+    script(src="/js/script.js")

@@ -20,7 +20,8 @@ const getAllFavorites = async (req, res) => {
 // POST http://localhost:3000/api/favorites
 const createFavorite = async (req, res) => {
   try {
-    const { userId, movieId } = req.body;
+    const {movieId} = req.body;
+    const userId = req.user.id; 
 
     if (!userId || !movieId) {
       return res
@@ -38,9 +39,11 @@ const createFavorite = async (req, res) => {
 // DELETE http://localhost:3000/api/favorites
 const deleteFavorite = async (req, res) => {
   try {
-    const { userId, movieId } = req.body;
 
-    if (!userId || !movieId) {
+    const {movieId} = req.body;
+    const userId = req.user.id; 
+  
+    if (!userId || !movieId) {
       return res.status(400).json({
         message: "Faltan datos: Id del user o Id de la película",
       });
