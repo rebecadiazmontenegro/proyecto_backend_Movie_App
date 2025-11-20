@@ -1,4 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const favoritesController = require('../controllers/favorites.controller');
+
+router.get("/", favoritesController.getAllFavorites);
+router.post('/', favoritesController.createFavorite);
+router.delete("/", favoritesController.deleteFavorite);
 
 
-// GET http://localhost:3000/api/movie/id/1234
-//router.get("/id/:id", movieController.getOneMovie);
+
+module.exports = router;

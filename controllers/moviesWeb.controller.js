@@ -1,9 +1,21 @@
+const { render } = require("pug");
 const movieService = require("../services/movies.service");
 const allFetch = require("../utils/fetchMovie.utils");
 
 const renderSearch = (req, res) => {
   res.render("search");
 };
+
+const renderDashboard = (req, res) => {
+  res.render("dashboard");
+}
+
+const renderFavoritos = (req, res) => {
+  res.render("favoritos");
+}
+
+
+
 
 // moviesWeb.controller.js
 
@@ -36,5 +48,7 @@ const renderMovieDetail = async (req, res) => {
 
 module.exports = {
     renderSearch,
-    renderMovieDetail
+    renderMovieDetail, 
+    renderDashboard,
+    renderFavoritos
 }

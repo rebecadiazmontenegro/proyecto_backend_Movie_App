@@ -1,0 +1,33 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Favoritos
+    link(rel="stylesheet", href="/css/style.css")
+
+  body
+    main
+      h1 Tus Películas Favoritas
+
+      if favorites && favorites.length > 0
+        .favorites-container
+          each movie in favorites
+            .movie-card
+              h2= movie.Title
+              if movie.Poster
+                img(src=movie.Poster, alt=movie.Title)
+              p 
+                strong Año: 
+                | #{movie.Year}
+              p 
+                strong Director: 
+                | #{movie.Director}
+              p 
+                strong Género: 
+                | #{movie.Genre}
+              p 
+                strong Duración: 
+                | #{movie.Runtime}
+      else
+        p No tienes películas favoritas guardadas aún.

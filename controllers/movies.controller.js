@@ -36,6 +36,26 @@ const getOneMovie = async (req, res) => {
   }
 };
 
+
+
+// getMovieById http://localhost:3000/api/movie/:id
+const getMovieById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    //const movie = await movieService.getMovieService(title);
+    let movies = await allFetch.fetchMovieById(id);
+
+    if (movies.length === 0)
+      // busca en mongo
+      movies = await movieService.getMovieByIdService(id);
+
+    res.status(200).json(movies);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ msj: error.message });
+  }
+};
+
 // POST http://localhost:3000/api/movie
 
 const postMovie = async (req, res) => {
@@ -89,6 +109,7 @@ const deleteMovie = async (req, res) => {
 module.exports = {
   getAllMovies,
   getOneMovie,
+  getMovieById,
   postMovie,
   putMovie,
   deleteMovie,
