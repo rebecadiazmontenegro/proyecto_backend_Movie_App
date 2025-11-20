@@ -60,6 +60,7 @@ const userRoutes = require("./routes/users.route");
 // API: Usar las rutas definidas 
 app.use('/api/movie', movieRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/favorites', favoritesRoutes);
 
 
 //Rutas WEB---
