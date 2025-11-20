@@ -14,7 +14,8 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "pg": "^8.16.3",
-    "pug": "^3.0.3"
+    "pug": "^3.0.3",
+    "puppeteer": "^24.31.0"
   },
   "name": "proyecto_backend_movie_app",
   "version": "1.0.0",

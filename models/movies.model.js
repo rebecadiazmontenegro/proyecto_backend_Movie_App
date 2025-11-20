@@ -43,7 +43,7 @@ const objectSchema = {
     required: true,
   },
   Opinions: {
-    type: String,
+    type: Array,
     required: false,
   },
 };

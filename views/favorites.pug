@@ -1,48 +1,39 @@
 doctype html
-html(lang="en")
+html(lang="es")
   head
     meta(charset="UTF-8")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Favoritos
     link(rel="stylesheet", href="/css/style.css")
-    title Detalle Película
+
   body
     main
-      if movie
-        .movie-card
-          h1= movie.Title
-          if movie.Poster
-            img(src=movie.Poster alt=movie.Title)
-          if movie.Year
-            p 
-              strong Año: 
-              | #{movie.Year}
-          if movie.Director
-            p 
-              strong Director: 
-              | #{movie.Director}
-          if movie.Genre
-            p 
-              strong Género: 
-              | #{movie.Genre}
-          if movie.Runtime
-            p 
-              strong Duración: 
-              | #{movie.Runtime}
-          if movie.Country
-            p 
-              strong País: 
-              | #{movie.Country}
-          if movie.Actors
-            p
-              strong Actores: 
-              | #{movie.Actors}
-          if movie.Plot
-            p
-              strong Sinopsis: 
-              | #{movie.Plot}
-          if movie.imdbRating
-            p
-              strong Puntuación: 
-              | #{movie.imdbRating}
+      h1 Tus Películas Favoritas
+
+      if favorites && favorites.length > 0
+        .favorites-container
+          each movie in favorites
+            .movie-card
+              h2= movie.Title
+              if movie.Poster
+                img(src=movie.Poster, alt=movie.Title)
+              p 
+                strong Año: 
+                | #{movie.Year}
+              p 
+                strong Director: 
+                | #{movie.Director}
+              p 
+                strong Género: 
+                | #{movie.Genre}
+              p 
+                strong Duración: 
+                | #{movie.Runtime}
+                
+              button#deleteButton(data-id=(movie.imdbID || movie._id)) Eliminar favorito
       else
-        p= message
+        p No tienes películas favoritas guardadas aún.
+
+
+      script(src="/js/script.js")

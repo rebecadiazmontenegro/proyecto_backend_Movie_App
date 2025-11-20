@@ -4,6 +4,7 @@ const moviesModel = require("../models/movies.model"); // modelo de Mongo
 const fetchMovie = require("../utils/fetchMovie.utils"); // función fetchMovieById
 
 // GET http://localhost:3000/api/favorites
+
 const getAllFavoritesModel = async (userId) => {
   const { rows } = await pool.query(queries.getFavoriteById, [userId]);
   const movieIds = rows.map((row) => row.id_movie);
