@@ -12,8 +12,9 @@ document.getElementById("searchButton")?.addEventListener("click", async (e) => 
     data.forEach (movie => {
     result.innerHTML += `
     <div class="movie-card">
-        <h2>${movie.Title}</h2>
+        
         ${movie.Poster ? `<img src="${movie.Poster}" alt="${movie.Title}">` : ""}
+        <h2>${movie.Title}</h2>
         ${movie.Year ? `<p><strong>Año:</strong> ${movie.Year}</p>` : ""}
         <a class="detalle" href="/search/${encodeURIComponent(movie.Title)}">Detalles</a>
     </div>
