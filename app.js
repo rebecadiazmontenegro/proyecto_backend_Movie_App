@@ -65,7 +65,11 @@ app.use('/api/favorites', favoritesRoutes);
 
 //Rutas WEB---
 const moviesWebRoutes = require("./routes/moviesWeb.routes");
+const favoritesWebRoutes = require("./routes/favoritesWeb.route.js");
+
 app.use('/',moviesWebRoutes);
+app.use('/', favoritesWebRoutes);
+//*******************************************
 //-----
 
 
