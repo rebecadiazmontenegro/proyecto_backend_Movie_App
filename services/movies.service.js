@@ -14,6 +14,20 @@ const getMovieService = async (title) => {
   }
 };
 
+// GET buscar por id
+const getMovieByIdService = async (id) => {
+  try {
+    if (!id) {
+      return { message: "Por favor, introduce un título" };
+    } else {
+      const movies = await Movie.find({ _id: id }, "-_id -__v");
+      return movies;
+    }
+  } catch (error) {
+    return { message: "Error al obtener las película", details: error.message };
+  }
+};
+
 
 // POST
 
@@ -88,6 +102,7 @@ async function deleteMovieService(Title) {
 
 module.exports = {
   getMovieService,
+  getMovieByIdService,
   createMovieService,
   editMovieService,
   deleteMovieService,

@@ -54,7 +54,7 @@ try {
     if (data.Response === "False") {
       return []; // no se encontró. Length = 0
     }
-    return data.Search; // [{},{},{}]
+    return data; // [{},{},{}]
   }catch(error){
     console.error("Error al obtener detalles de la película:", error.message);
     return [];  // no se encontró. Length = 0

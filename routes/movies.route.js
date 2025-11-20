@@ -8,6 +8,9 @@ router.get("/all/:title", movieController.getAllMovies);
 // GET http://localhost:3000/api/movie/titanic
 router.get("/:title", movieController.getOneMovie);
 
+// GET http://localhost:3000/api/movie/id/1234
+router.get("/id/:id", movieController.getMovieById);
+
 // POST http://localhost:3000/api/movie
 router.post("/", movieController.postMovie);
 
