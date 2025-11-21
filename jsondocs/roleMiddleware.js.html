@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: roleMiddleware.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: roleMiddleware.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @author Rebeca, Lucia, Artur &lt;RebecaLuciaArtur@gmail.com> 
+ * @exports roleMiddleware
+ * @namespace middlewares
+ */
 
+/**
+ * Middleware de autorización basado en roles.
+ * @function
+ * @param  - Rol requerido para acceder a la ruta (por ejemplo: "admin" o "user").
+ * @returns Middleware de Express que valida el rol del usuario.
+ */
 
-    <h3> </h3>
+function authorizeRole(role) {
+    return (req, res, next) => {
+        if (req.user.role === role) {
+            return next();
+        } else {
+            return res.status(403).send('Acceso denegado');
+        }
+    };
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = authorizeRole;
+</code></pre>
+        </article>
+    </section>
 
 
 

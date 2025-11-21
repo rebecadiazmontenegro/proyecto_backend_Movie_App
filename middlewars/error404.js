@@ -1,4 +1,19 @@
 
+/**
+ * @author Rebeca, Lucia, Artur <RebecaLuciaArtur@gmail.com> 
+ * @exports error404
+ * @namespace middlewares
+ */
+
+/**
+  * Función para tratar rutas no encontradas
+  * Última ruta por defecto. En caso de no encontrarse ninguna anterior, devolvemos un 404
+  * @memberof middlewares 
+  * @method manage404 
+  * @param {Object} req objeto de petición HTTP
+  * @param {Object} res objeto de respuesta HTTP
+  * @param {Object} next función que pasa a siguiente estado si la comprobación es correcta 
+  */
 
 const manage404 = (req,res, next) => {
     res.status(404).json({

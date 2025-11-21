@@ -1,5 +1,7 @@
 const movieService = require("../services/movies.service");
 const allFetch = require("../utils/fetchMovie.utils");
+const {validationResult} = require("express-validator");
+
 
 // getAllMovies http://localhost:3000/api/all/movie/:title
 const getAllMovies = async (req, res) => {
@@ -20,6 +22,7 @@ const getAllMovies = async (req, res) => {
 
 // getOneMovies http://localhost:3000/api/movie/:title
 const getOneMovie = async (req, res) => {
+
   try {
     const { title } = req.params;
     //const movie = await movieService.getMovieService(title);
@@ -59,6 +62,13 @@ const getMovieById = async (req, res) => {
 // POST http://localhost:3000/api/movie
 
 const postMovie = async (req, res) => {
+
+// Añadido validación de errores
+  const result = validationResult(req);
+    if (!result.isEmpty()) {
+       return res.send({ errors: result.array() });
+    }
+
   try {
     const movie = await movieService.createMovieService(req.body);
     res.status(201).json(movie);
@@ -93,6 +103,13 @@ const putMovie = async (req, res) => {
 // DELETE http://localhost:3000/api/movie
 
 const deleteMovie = async (req, res) => {
+
+  // Añadido validación de errores
+ const result = validationResult(req);
+    if (!result.isEmpty()) {
+       return res.send({ errors: result.array() });
+    }
+
   try {
     const { Title } = req.body;
     if (!Title)

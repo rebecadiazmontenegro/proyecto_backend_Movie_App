@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: error404.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: error404.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * @author Rebeca, Lucia, Artur &lt;RebecaLuciaArtur@gmail.com> 
+ * @exports error404
+ * @namespace middlewares
+ */
 
+/**
+  * Función para tratar rutas no encontradas
+  * Última ruta por defecto. En caso de no encontrarse ninguna anterior, devolvemos un 404
+  * @memberof middlewares 
+  * @method manage404 
+  * @param {Object} req objeto de petición HTTP
+  * @param {Object} res objeto de respuesta HTTP
+  * @param {Object} next función que pasa a siguiente estado si la comprobación es correcta 
+  */
 
-    <h3> </h3>
+const manage404 = (req,res, next) => {
+    res.status(404).json({
+        msj:"404 not found",
+        img:"https://seranking.com/blog/wp-content/uploads/2021/01/404_01-min.jpg"
+    });
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = manage404;</code></pre>
+        </article>
+    </section>
 
 
 

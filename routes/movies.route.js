@@ -1,13 +1,11 @@
 const movieController = require("../controllers/movies.controller");
 const moviesWebController = require("../controllers/moviesWeb.controller");
 const router = require("express").Router();
+const {validateCreateMovie, validateDeleteMovie} = require("../validators/movies.validator");
 
 // GET http://localhost:3000/api/movie/all/:title
 
-/**
- * @author AlejandroReyes <alejandroreyespage.com> 
- * @exports routes 
- * @namespace routes 
+
  
 /**
  * @swagger
@@ -102,7 +100,7 @@ router.get("/:title", movieController.getOneMovie);
  *       400:
  *         description: Error
  */
-router.post("/", movieController.postMovie);
+router.post("/", validateCreateMovie, movieController.postMovie);
 
 
 
@@ -186,6 +184,6 @@ router.put("/", movieController.putMovie);
  *       404:
  *         description: Error 
  */
-router.delete("/", movieController.deleteMovie);
+router.delete("/", validateDeleteMovie, movieController.deleteMovie);
 
 module.exports = router;
